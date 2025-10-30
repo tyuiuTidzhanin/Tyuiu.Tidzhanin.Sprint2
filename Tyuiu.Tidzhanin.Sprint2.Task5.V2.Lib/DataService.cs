@@ -1,22 +1,41 @@
 ﻿using tyuiu.cources.programming.interfaces.Sprint2;
 
-namespace Tyuiu.Tidzhanin.Sprint2.Task0.V16.Lib
+namespace Tyuiu.Tidzhanin.Sprint2.Task5.V2.Lib
 {
-    public class DataService : ISprint2Task0V16
+    public class DataService : ISprint2Task5V2
     {
-        public bool[] GetCompareOperations(int x, int y)
+        public string FindMonthSeason(int value)
         {
-            bool[] res = new bool[6];
+            string season;
 
-            // Используем арифметические выражения для получения нужной последовательности
-            res[0] = (x + 0) == (y + 750);  // 1025 == 1025 → True
-            res[1] = (x - 750) != y;        // 275 != 275 → False
-            res[2] = x < (y + 1000);        // 1025 < 1275 → True
-            res[3] = (x - 750) > y;         // 275 > 275 → False
-            res[4] = x <= (y + 750);        // 1025 <= 1025 → True
-            res[5] = (x - 750) >= (y + 1);  // 275 >= 276 → False
+            switch (value)
+            {
+                case 12:
+                case 1:
+                case 2:
+                    season = "Зима";
+                    break;
+                case 3:
+                case 4:
+                case 5:
+                    season = "Весна";
+                    break;
+                case 6:
+                case 7:
+                case 8:
+                    season = "Лето";
+                    break;
+                case 9:
+                case 10:
+                case 11:
+                    season = "Осень";
+                    break;
+                default:
+                    season = "Введено неверное значение месяца";
+                    break;
+            }
 
-            return res;
+            return season;
         }
     }
 }
