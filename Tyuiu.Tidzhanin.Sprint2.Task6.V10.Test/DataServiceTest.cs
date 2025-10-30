@@ -12,8 +12,8 @@ namespace Tyuiu.Tidzhanin.Sprint2.Task6.V10.Test
             DataService ds = new DataService();
 
             // Обычный день (не первое число)
-            string result = ds.FindDateOfPreviousDay(2023, 5, 15);
-            Assert.AreEqual("14.5.2023", result);
+            string result = ds.FindDateOfPreviousDay(2023, 9, 8);
+            Assert.AreEqual("07.09.2023", result);
         }
 
         [TestMethod]
@@ -23,7 +23,7 @@ namespace Tyuiu.Tidzhanin.Sprint2.Task6.V10.Test
 
             // Первое число месяца (переход на предыдущий месяц)
             string result = ds.FindDateOfPreviousDay(2023, 6, 1);
-            Assert.AreEqual("31.5.2023", result);
+            Assert.AreEqual("31.05.2023", result);
         }
 
         [TestMethod]
@@ -43,7 +43,7 @@ namespace Tyuiu.Tidzhanin.Sprint2.Task6.V10.Test
 
             // Первое марта (переход с февраля)
             string result = ds.FindDateOfPreviousDay(2023, 3, 1);
-            Assert.AreEqual("28.2.2023", result);
+            Assert.AreEqual("28.02.2023", result);
         }
 
         [TestMethod]
@@ -53,7 +53,17 @@ namespace Tyuiu.Tidzhanin.Sprint2.Task6.V10.Test
 
             // Первое мая (переход с апреля - 30 дней)
             string result = ds.FindDateOfPreviousDay(2023, 5, 1);
-            Assert.AreEqual("30.4.2023", result);
+            Assert.AreEqual("30.04.2023", result);
+        }
+
+        [TestMethod]
+        public void ValidFindDateOfPreviousDaySingleDigit()
+        {
+            DataService ds = new DataService();
+
+            // Тест с однозначными числами
+            string result = ds.FindDateOfPreviousDay(2023, 10, 2);
+            Assert.AreEqual("01.10.2023", result);
         }
     }
 }

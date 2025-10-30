@@ -22,6 +22,7 @@ namespace Tyuiu.Tidzhanin.Sprint2.Task6.V10.Lib
                     prevYear--;
                 }
 
+                // Определяем количество дней в предыдущем месяце
                 prevDay = prevMonth switch
                 {
                     1 or 3 or 5 or 7 or 8 or 10 or 12 => 31,
@@ -31,7 +32,11 @@ namespace Tyuiu.Tidzhanin.Sprint2.Task6.V10.Lib
                 };
             }
 
-            return $"{prevDay}.{prevMonth}.{prevYear}";
+            // Форматируем с ведущими нулями
+            string formattedDay = prevDay.ToString("D2");
+            string formattedMonth = prevMonth.ToString("D2");
+
+            return $"{formattedDay}.{formattedMonth}.{prevYear}";
         }
     }
 }
