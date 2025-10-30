@@ -1,11 +1,21 @@
-﻿namespace Tyuiu.Tidzhanin.Sprint2.Task0.V16.Test
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Tyuiu.Tidzhanin.Sprint2.Task0.V16.Lib;
+
+namespace Tyuiu.Tidzhanin.Sprint2.Task0.V16.Test
 {
     [TestClass]
-    public sealed class DataServiceTest
+    public class DataServiceTest
     {
         [TestMethod]
-        public void TestMethod1()
+        public void ValidGetCompareOperations()
         {
+            DataService ds = new DataService();
+            int x = 1025;
+            int y = 275;
+            bool[] res = ds.GetCompareOperations(x, y);
+            bool[] wait = { true, false, true, false, true, false };
+
+            CollectionAssert.AreEqual(wait, res);
         }
     }
 }
